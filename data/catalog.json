@@ -1,0 +1,73 @@
+[
+    {
+        "name": "Men's T-Shirts",
+        "products": [
+            {
+                "id": 11,
+                "name": "Cotton Crewneck T-Shirt",
+                "price": 15.99,
+                "description": "A classic crewneck t-shirt made from soft, breathable cotton.",
+                "image": "crewneck.png"
+            },
+            {
+                "id": 12,
+                "name": "V-Neck T-Shirt",
+                "price": 19.99,
+                "description": "A stylish and comfortable v-neck t-shirt made from a blend of cotton and polyester.",
+                "image": "vneck.png"
+            },
+            {
+                "id": 13,
+                "name": "Pocket T-Shirt",
+                "price": 22.99,
+                "description": "A versatile pocket t-shirt made from a soft and durable cotton blend.",
+                "image": "pocket.png"
+            }
+        ]
+    },
+    {
+        "name": "Women's T-Shirts",
+        "products": [
+            {
+                "id": 21,
+                "name": "Scoopneck T-Shirt",
+                "price": 18.99,
+                "description": "A comfortable and stylish scoopneck t-shirt made from a soft and breathable cotton blend.",
+                "image": "scoopneck.png"
+            },
+            {
+                "id": 22,
+                "name": "V-Neck T-Shirt",
+                "price": 19.99,
+                "description": "A classic v-neck t-shirt made from a soft and durable cotton blend.",
+                "image": "vneck.png"
+            },
+            {
+                "id": 23,
+                "name": "Graphic T-Shirt",
+                "price": 24.99,
+                "description": "A fun and stylish graphic t-shirt made from a soft and comfortable cotton blend.",
+                "image": "graphic.png"
+            }
+        ]
+    },
+    {
+        "name": "Kids' T-Shirts",
+        "products": [
+            {
+                "id": 31,
+                "name": "Basic T-Shirt",
+                "price": 9.99,
+                "description": "A basic and comfortable t-shirt made from a soft and durable cotton blend.",
+                "image": "basic.png"
+            },
+            {
+                "id": 32,
+                "name": "Graphic T-Shirt",
+                "price": 14.99,
+                "description": "A fun and stylish graphic t-shirt made from a soft and comfortable cotton blend.",
+                "image": "graphic.png"
+            }
+        ]
+    }
+]
