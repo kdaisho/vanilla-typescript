@@ -1,0 +1,106 @@
+/* -- css reset -- */
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+/* -- css reset -- */
+
+:root {
+    --dark-grey: #333;
+    --light-grey: #f6f4f9;
+    --pink: #fca3b9;
+    --yellow: #fcd752;
+    --blue: #6184c6;
+
+    --font-small: 12px;
+    --font-large: 20px;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+}
+
+body > header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+body > main {
+    margin: auto;
+    margin-top: 60px;
+    max-width: 500px;
+}
+
+header {
+    align-items: center;
+    background: var(--light-grey);
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 40px;
+}
+
+h1 {
+    font-size: var(--font-large);
+}
+
+ul {
+    display: none;
+}
+
+a.navlink {
+    color: var(--dark-grey);
+    padding: 8px;
+    text-decoration: none;
+}
+
+section.page {
+    display: none;
+}
+
+.badge {
+    background: red;
+    border-radius: 15px;
+    color: #fff;
+    font-size: var(--font-small);
+    padding: 4px;
+    position: absolute;
+    right: 5px;
+    text-align: center;
+    top: 6px;
+    width: 10px;
+}

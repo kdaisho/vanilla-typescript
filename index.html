@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Five Tees</title>
+
+        <link rel="stylesheet" href="src/styles.css" />
+        <link rel="icon" href="src/images/icons/favicon.png" />
+        <script src="script/app.js" type="module" defer></script>
+    </head>
+
+    <body>
+        <header>
+            <a class="link-home navlink" id="home" href="/">
+                <img
+                    class="logo"
+                    src="src/images/icons/logo.webp"
+                    alt="Five Tees logo"
+                />
+            </a>
+            <h1>Five Tees</h1>
+            <nav>
+                <a class="link-order navlink" href="/order" id="order">Cart</a>
+                <span class="badge" hidden></span>
+            </nav>
+        </header>
+
+        <main></main>
+
+        <template id="menu-page-template">
+            <section>
+                <ul id="menu"></ul>
+            </section>
+        </template>
+
+        <template id="product-item-template">
+            <article>
+                <a href="#">
+                    <img />
+                    <section>
+                        <div>
+                            <h4></h4>
+                            <p class="price"></p>
+                            <p></p>
+                        </div>
+
+                        <button>Add</button>
+                    </section>
+                </a>
+            </article>
+        </template>
+
+        <template id="order-form-template">
+            <form>
+                <label for="name">Your name</label>
+                <input name="name" required />
+                <label for="phone">Your phone number</label>
+                <input name="phone" type="tel" />
+                <label for="email">Your email</label>
+                <input name="email" type="email" />
+                <button type="submit">Place order</button>
+            </form>
+        </template>
+
+        <template id="details-page-template">
+            <header>
+                <a
+                    href="#"
+                    onclick="app.router.go('/'); event.preventDefault()"
+                >
+                    &lt; Back
+                </a>
+                <h2></h2>
+                <a></a>
+            </header>
+            <img src="" />
+            <p class="description"></p>
+            <p class="price"></p>
+            <button>Add to cart</button>
+        </template>
+
+        <template id="cart-item-template">
+            <li>
+                <p class="qty"></p>
+                <p class="name"></p>
+                <p class="price"></p>
+                <p class="toolbar">
+                    <a href="#" class="delete-button">🗑️</a>
+                </p>
+            </li>
+        </template>
+    </body>
+</html>
