@@ -45,10 +45,13 @@ img {
 
     --font-small: 12px;
     --font-large: 20px;
+
+    --nav-height: 50px;
 }
 
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    padding-top: var(--nav-height);
 }
 
 body > header {
@@ -59,7 +62,6 @@ body > header {
 
 body > main {
     margin: auto;
-    margin-top: 60px;
     max-width: 500px;
 }
 
@@ -67,11 +69,12 @@ header {
     align-items: center;
     background: var(--light-grey);
     display: flex;
+    height: var(--nav-height);
     justify-content: space-between;
 }
 
 .logo {
-    width: 40px;
+    width: 35px;
 }
 
 h1 {

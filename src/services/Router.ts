@@ -23,16 +23,18 @@ const Router = {
 
         switch (route) {
             case '/':
-                pageElement = document.createElement('h1')
-                pageElement.textContent = 'Home'
+                pageElement = document.createElement('catalog-page')
                 break
             case '/cart':
-                pageElement = document.createElement('h1')
+                pageElement = document.createElement('order-page')
                 pageElement.textContent = 'Cart'
                 break
             default:
-                pageElement = document.createElement('h1')
-                pageElement.textContent = 'Oops, 404.'
+                pageElement = document.createElement('details-page')
+                pageElement.textContent = 'Details'
+                const paramId = route.substring(route.lastIndexOf('/') + 1)
+                console.log('==> P_ID', paramId)
+                pageElement.dataset.id = paramId
                 break
         }
 
