@@ -1,0 +1,8 @@
+h2 {
+    color: var(--yellow);
+    text-shadow: 1px 1px 0 var(--dark-grey);
+}
+
+* {
+    background: brown;
+}

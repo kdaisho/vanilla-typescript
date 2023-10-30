@@ -46,6 +46,7 @@ img {
     --font-small: 12px;
     --font-large: 20px;
 
+    --app-width: 768px;
     --nav-height: 50px;
 }
 
@@ -61,16 +62,22 @@ body > header {
 }
 
 body > main {
-    margin: auto;
-    max-width: 500px;
+    margin: 0 auto;
+    max-width: var(--app-width);
 }
 
 header {
-    align-items: center;
     background: var(--light-grey);
-    display: flex;
     height: var(--nav-height);
+}
+
+header .inner {
+    align-items: center;
+    display: flex;
     justify-content: space-between;
+    margin: 0 auto;
+    max-width: var(--app-width);
+    width: 100%;
 }
 
 .logo {

@@ -29,7 +29,6 @@ const Router = {
                 pageElement = document.createElement('details-page');
                 pageElement.textContent = 'Details';
                 const paramId = route.substring(route.lastIndexOf('/') + 1);
-                console.log('==> P_ID', paramId);
                 pageElement.dataset.id = paramId;
                 break;
         }

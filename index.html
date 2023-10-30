@@ -12,31 +12,28 @@
 
     <body>
         <header>
-            <a class="link-home navlink" id="home" href="/">
-                <img
-                    class="logo"
-                    src="src/images/icons/logo.webp"
-                    alt="Five Tees logo"
-                />
-            </a>
-            <h1>Five Tees</h1>
-            <nav>
-                <a class="link-order navlink" href="/cart" id="order">Cart</a>
-                <span class="badge" hidden></span>
-            </nav>
+            <div class="inner">
+                <a class="link-home navlink" id="home" href="/">
+                    <img
+                        class="logo"
+                        src="src/images/icons/logo.webp"
+                        alt="Five Tees logo"
+                    />
+                </a>
+                <h1>Five Tees</h1>
+                <nav>
+                    <a class="link-order navlink" href="/cart" id="order">
+                        Cart
+                    </a>
+                    <span class="badge" hidden></span>
+                </nav>
+            </div>
         </header>
-
-        <h2>Some</h2>
 
         <main></main>
 
         <template id="catalog-page-template">
-            <style>
-                h2 {
-                    color: hotpink;
-                }
-            </style>
-            <h2>This is the catalog</h2>
+            <h2>All T-shirts</h2>
             <section>
                 <ul id="catalog"></ul>
             </section>
