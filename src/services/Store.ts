@@ -1,4 +1,4 @@
-import { App } from 'src/types'
+import { App } from '../types'
 
 const Store: {
     catalog: null | App['store']['catalog']

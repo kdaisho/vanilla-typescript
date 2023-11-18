@@ -1,6 +1,6 @@
-import { CatalogPage } from './components/catalog-page/CatalogPage'
-import { DetailsPage } from './components/details-page/DetailsPage'
-import { OrderPage } from './components/order-page/OrderPage'
+import CatalogPage from './components/catalog-page/CatalogPage'
+import DetailsPage from './components/details-page/DetailsPage'
+import OrderPage from './components/order-page/OrderPage'
 
 export interface App {
     store: {

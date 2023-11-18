@@ -1,6 +1,6 @@
 import { loadCSS } from '../../utils.js'
 
-export class CatalogPage extends HTMLElement {
+export default class CatalogPage extends HTMLElement {
     root: ShadowRoot
 
     constructor() {

@@ -1,9 +1,9 @@
 import ProxyStore from './services/Store.js';
 import Router from './services/Router.js';
 import { loadData } from './services/Catalog.js';
-import { CatalogPage } from './components/catalog-page/CatalogPage.js';
-import { DetailsPage } from './components/details-page/DetailsPage.js';
-import { OrderPage } from './components/order-page/OrderPage.js';
+import CatalogPage from './components/catalog-page/CatalogPage.js';
+import DetailsPage from './components/details-page/DetailsPage.js';
+import OrderPage from './components/order-page/OrderPage.js';
 window.app = {};
 window.app.store = ProxyStore;
 window.app.router = Router;
