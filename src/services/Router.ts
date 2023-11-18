@@ -32,8 +32,9 @@ const Router = {
             default:
                 pageElement = document.createElement('details-page')
                 pageElement.textContent = 'Details'
-                const paramId = route.substring(route.lastIndexOf('/') + 1)
-                pageElement.dataset.id = paramId
+                pageElement.dataset.id = route.substring(
+                    route.lastIndexOf('/') + 1
+                )
                 break
         }
 
