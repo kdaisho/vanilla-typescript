@@ -1,6 +1,8 @@
-## Vanilla TypeScript Single-Page Application
+# Vanilla TypeScript Single-Page Application
 
-### Custom Routing: common pitfalls and solutions
+## Notes
+
+### Custom routing: common pitfalls and solutions
 
 I built a custom routing system which seemed to function well initially. However, I encountered an issue when navigating to the `/cart` page and refreshing it, causing the app to crash with the error: `Cannot GET /cart`, accompanied by a 404 response from the server.
 
@@ -8,7 +10,7 @@ Since this project doesn't involve server-side operations and aims to showcase t
 
 Though hash routing (e.g., `/#cart`) is a common workaround for SPAs to prevent server requests on refresh, it isn't a preferred solution for me.
 
-#### Enabling Index.html Forwarding
+### Enabling index.html forwarding
 
 Luckily, the Live Server extension allows for a configuration to always serve the `index.html` file regardless of the route, effectively solving the refresh issue:
 
@@ -27,3 +29,9 @@ Luckily, the Live Server extension allows for a configuration to always serve th
 Now, irrespective of the route, Live Server will always serve the `index.html` file, ensuring your SPA remains functional on refresh.
 
 It might be beneficial to configure a custom 404 page for unmatched routes, as this setup bypasses the typical 404 responses, even for nonexistent routes.
+
+## Problem
+
+### Challenges in sharing global styles between host and shadow DOMs
+
+I'm exploring methods to effectively share global styles (like reset.css) between the host and shadow DOMs, without the need to import these styles into each component individually. The goal is to maintain the encapsulation of styles within the shadow DOMs, allowing style propagation from the host to the shadow DOM, but not vice versa.

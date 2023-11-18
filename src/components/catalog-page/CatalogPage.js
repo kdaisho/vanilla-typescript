@@ -14,6 +14,7 @@ export default class CatalogPage extends HTMLElement {
         window.addEventListener('catalogupdate', () => {
             this.render();
         });
+        this.render();
     }
     render() {
         const catalogElement = this.root.querySelector('#catalog');

@@ -18,11 +18,13 @@ export default class CatalogPage extends HTMLElement {
             'catalog-page-template'
         ) as HTMLTemplateElement
         const content = template.content.cloneNode(true)
+
         this.root.appendChild(content)
 
         window.addEventListener('catalogupdate', () => {
             this.render()
         })
+        this.render()
     }
 
     render() {

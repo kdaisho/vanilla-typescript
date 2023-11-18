@@ -89,10 +89,6 @@ h1 {
     font-size: var(--font-large);
 }
 
-ul {
-    display: none;
-}
-
 a.navlink {
     color: var(--dark-grey);
     padding: 8px;
