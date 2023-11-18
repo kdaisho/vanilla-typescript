@@ -1,6 +1,6 @@
-import CatalogPage from './components/catalog-page/CatalogPage'
-import DetailsPage from './components/details-page/DetailsPage'
-import OrderPage from './components/order-page/OrderPage'
+import CatalogPage from './components/catalog-page/CatalogPage.js'
+import DetailsPage from './components/details-page/DetailsPage.js'
+import OrderPage from './components/order-page/OrderPage.js'
 
 export interface App {
     store: {
@@ -20,6 +20,7 @@ type Catalog = {
     products: {
         id: number
         name: string
+        name999: string
         price: number
         description: string
         image: string

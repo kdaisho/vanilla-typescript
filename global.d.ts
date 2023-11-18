@@ -1,4 +1,4 @@
-import { App } from './src/types'
+import { App } from './src/types.ts'
 
 export {}
 

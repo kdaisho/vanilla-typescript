@@ -5,4 +5,9 @@ module.exports = {
     plugins: ['@typescript-eslint'],
     ignorePatterns: ['**/*.js'],
     root: true,
+    settings: {
+        'import/resolver': {
+            typescript: {},
+        },
+    },
 }
