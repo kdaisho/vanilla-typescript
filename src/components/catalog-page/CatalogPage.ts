@@ -26,17 +26,26 @@ export class CatalogPage extends HTMLElement {
     }
 
     render() {
+        const catalogElement = this.root.querySelector('#catalog')!
+        catalogElement.innerHTML = ''
+
         if (window.app.store.catalog) {
-            for (const item of window.app.store.catalog) {
+            for (const category of window.app.store.catalog) {
                 const li = document.createElement('li')
                 li.innerHTML = `
-                    <h3>${item.name}</h3>       
+                    <h3>${category.name}</h3>       
                     <ul class='category'></ul>
                 `
-                this.root.querySelector('#catalog')!.appendChild(li)
+                catalogElement.appendChild(li)
+
+                category.products.forEach(product => {
+                    const item = document.createElement('product-item')
+                    item.dataset.product = JSON.stringify(product)
+                    li.querySelector('.category')!.appendChild(item)
+                })
             }
         } else {
-            this.root.querySelector('#catalog')!.innerHTML = 'Loading...'
+            catalogElement.innerHTML = 'Loading...'
         }
     }
 }

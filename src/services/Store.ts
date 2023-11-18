@@ -1,5 +1,7 @@
+import { App } from 'src/types'
+
 const Store: {
-    catalog: null | Record<string, unknown>
+    catalog: null | App['store']['catalog']
     cart: Record<string, unknown>[]
 } = {
     catalog: null,
@@ -9,7 +11,7 @@ const Store: {
 const ProxyStore = new Proxy(Store, {
     set(target: typeof Store, prop: keyof typeof Store, value: unknown) {
         if (prop === 'catalog') {
-            target[prop] = value as Record<string, unknown>
+            target[prop] = value as (typeof Store)['catalog']
             window.dispatchEvent(new Event('catalogupdate'))
         }
         if (prop === 'cart') {
