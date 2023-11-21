@@ -1,3 +1,11 @@
+@import url('src/reset.css');
+
+.catalog {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2rem;
+}
+
 h2 {
     color: var(--hotpink);
 }
@@ -9,6 +17,8 @@ button {
     padding: 0.25rem 1rem;
 }
 
-ul {
-    list-style: none;
+.product-items {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
 }

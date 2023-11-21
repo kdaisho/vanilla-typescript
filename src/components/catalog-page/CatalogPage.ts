@@ -9,7 +9,6 @@ export default class CatalogPage extends HTMLElement {
 
         const style = document.createElement('style')
         this.root.appendChild(style)
-
         loadCSS(style, 'src/components/catalog-page/catalog-page.css')
     }
 
@@ -17,9 +16,7 @@ export default class CatalogPage extends HTMLElement {
         const template = document.getElementById(
             'catalog-page-template'
         ) as HTMLTemplateElement
-        const content = template.content.cloneNode(true)
-
-        this.root.appendChild(content)
+        this.root.appendChild(template.content.cloneNode(true))
 
         window.addEventListener('catalogupdate', () => {
             this.render()
@@ -28,26 +25,27 @@ export default class CatalogPage extends HTMLElement {
     }
 
     render() {
-        const catalogElement = this.root.querySelector('#catalog')!
-        catalogElement.innerHTML = ''
+        const catalogUlElement = this.root.querySelector('#catalog')!
+        catalogUlElement.innerHTML = ''
 
         if (window.app.store.catalog) {
             for (const category of window.app.store.catalog) {
                 const li = document.createElement('li')
+                li.setAttribute('class', 'category')
                 li.innerHTML = `
                     <h3>${category.name}</h3>       
-                    <ul class='category'></ul>
+                    <ul class='product-items'></ul>
                 `
-                catalogElement.appendChild(li)
+                catalogUlElement.appendChild(li)
 
                 category.products.forEach(product => {
                     const item = document.createElement('product-item')
                     item.dataset.product = JSON.stringify(product)
-                    li.querySelector('.category')!.appendChild(item)
+                    li.querySelector('.product-items')!.appendChild(item)
                 })
             }
         } else {
-            catalogElement.innerHTML = 'Loading...'
+            catalogUlElement.innerHTML = 'Loading...'
         }
     }
 }
