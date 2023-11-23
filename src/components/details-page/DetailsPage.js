@@ -18,13 +18,13 @@ export default class DetailsPage extends HTMLElement {
         if (this.dataset.id) {
             this.product = (await getProductById(this.dataset.id));
             this.root.querySelector('h2').textContent = this.product.name;
-            this.root.querySelector('img').src = `/data/images/${this.product.image}`;
+            this.root.querySelector('img').src = `/src/images/products/${this.product.image}`;
             this.root.querySelector('.description').textContent =
                 this.product.description;
-            this.root.querySelector('.price').textContent = `$ ${this.product.price.toFixed(2)} ea`;
+            this.root.querySelector('.price').textContent = `$ ${this.product.price.toFixed(2)} each`;
             this.root.querySelector('button').addEventListener('click', () => {
                 // TODO addToCart(this.product.id);
-                window.app.router.go('/order');
+                window.app.router.go('/#/order');
             });
         }
         else {

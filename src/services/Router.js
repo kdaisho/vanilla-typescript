@@ -8,9 +8,13 @@ const Router = {
             });
         });
         window.addEventListener('popstate', (event) => {
-            Router.go(event.state.route, false);
+            if (event.state) {
+                Router.go(event.state.route, false);
+                return;
+            }
+            // TODO: render 404 page
         });
-        Router.go(location.pathname, false);
+        Router.go(location.pathname + location.hash, false);
     },
     go: (route, addToHistory = true) => {
         if (addToHistory) {
@@ -21,11 +25,11 @@ const Router = {
             case '/' === route:
                 pageElement = document.createElement('catalog-page');
                 break;
-            case '/cart' === route:
+            case '/#/cart' === route:
                 pageElement = document.createElement('order-page');
                 pageElement.textContent = 'Cart';
                 break;
-            case route.startsWith('/product/'):
+            case route.startsWith('/#/product/'):
                 pageElement = document.createElement('details-page');
                 pageElement.textContent = 'Details';
                 pageElement.dataset.id = route.substring(route.lastIndexOf('/') + 1);

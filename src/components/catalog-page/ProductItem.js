@@ -18,7 +18,7 @@ export default class ProductItem extends HTMLElement {
                 // TODO: Add to cart
             }
             else {
-                window.app.router.go(`/product/${product.id}`);
+                window.app.router.go(`/#/product/${product.id}`);
             }
         });
     }

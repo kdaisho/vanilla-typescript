@@ -23,7 +23,7 @@ export default class ProductItem extends HTMLElement {
             if (target.tagName.toLowerCase() === 'button') {
                 // TODO: Add to cart
             } else {
-                window.app.router.go(`/product/${product.id}`)
+                window.app.router.go(`/#/product/${product.id}`)
             }
         })
     }
