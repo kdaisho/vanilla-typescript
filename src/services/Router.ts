@@ -21,20 +21,23 @@ const Router = {
 
         let pageElement = null
 
-        switch (route) {
-            case '/':
+        switch (true) {
+            case '/' === route:
                 pageElement = document.createElement('catalog-page')
                 break
-            case '/cart':
+            case '/cart' === route:
                 pageElement = document.createElement('order-page')
                 pageElement.textContent = 'Cart'
                 break
-            default:
+            case route.startsWith('/product/'):
                 pageElement = document.createElement('details-page')
                 pageElement.textContent = 'Details'
                 pageElement.dataset.id = route.substring(
                     route.lastIndexOf('/') + 1
                 )
+                break
+            default:
+                console.log('404')
                 break
         }
 

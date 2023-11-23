@@ -1,6 +1,48 @@
+import { getProductById } from '../../services/Catalog.js'
+import type { Product } from '../../types'
+import { loadCSS } from '../../utils.js'
+
 export default class DetailsPage extends HTMLElement {
+    root: ShadowRoot
+    product: Product
+
     constructor() {
         super()
+        this.root = this.attachShadow({ mode: 'open' })
+        this.product = {} as Product
+
+        const styles = document.createElement('style')
+        this.root.appendChild(styles)
+        loadCSS(styles, 'src/components/catalog-page/details-page.css')
+    }
+
+    connectedCallback() {
+        const template = document.getElementById(
+            'details-page-template'
+        ) as HTMLTemplateElement
+        this.root.appendChild(template.content.cloneNode(true))
+        this.render()
+    }
+
+    async render() {
+        if (this.dataset.id) {
+            this.product = (await getProductById(this.dataset.id)) as Product
+            this.root.querySelector('h2')!.textContent = this.product.name
+            this.root.querySelector(
+                'img'
+            )!.src = `/data/images/${this.product.image}`
+            this.root.querySelector('.description')!.textContent =
+                this.product.description
+            this.root.querySelector(
+                '.price'
+            )!.textContent = `$ ${this.product.price.toFixed(2)} ea`
+            this.root.querySelector('button')!.addEventListener('click', () => {
+                // TODO addToCart(this.product.id);
+                window.app.router.go('/order')
+            })
+        } else {
+            alert('Invalid product ID')
+        }
     }
 }
 

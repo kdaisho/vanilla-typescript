@@ -18,14 +18,16 @@ export interface App {
     }
 }
 
-type Catalog = {
+export type Catalog = {
     name: string
-    products: {
-        id: number
-        name: string
-        name999: string
-        price: number
-        description: string
-        image: string
-    }[]
+    products: Product[]
 }[]
+
+export type Product = {
+    id: number
+    name: string
+    name999: string
+    price: number
+    description: string
+    image: string
+}

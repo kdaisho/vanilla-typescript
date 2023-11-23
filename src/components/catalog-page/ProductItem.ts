@@ -11,6 +11,7 @@ export default class ProductItem extends HTMLElement {
         this.appendChild(template.content.cloneNode(true))
 
         const product = JSON.parse(this.dataset.product as string)
+        delete this.dataset.product
         this.querySelector('h4')!.textContent = product.name
         this.querySelector('p.price')!.textContent =
             '$' + product.price.toFixed(2)
@@ -22,7 +23,7 @@ export default class ProductItem extends HTMLElement {
             if (target.tagName.toLowerCase() === 'button') {
                 // TODO: Add to cart
             } else {
-                window.app.router.go(`/product?id=${product.id}`)
+                window.app.router.go(`/product/${product.id}`)
             }
         })
     }

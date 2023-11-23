@@ -6,6 +6,7 @@ export default class ProductItem extends HTMLElement {
         const template = document.getElementById('product-item-template');
         this.appendChild(template.content.cloneNode(true));
         const product = JSON.parse(this.dataset.product);
+        delete this.dataset.product;
         this.querySelector('h4').textContent = product.name;
         this.querySelector('p.price').textContent =
             '$' + product.price.toFixed(2);
@@ -17,7 +18,7 @@ export default class ProductItem extends HTMLElement {
                 // TODO: Add to cart
             }
             else {
-                window.app.router.go(`/product?id=${product.id}`);
+                window.app.router.go(`/product/${product.id}`);
             }
         });
     }
