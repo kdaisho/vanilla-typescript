@@ -1,23 +1,24 @@
-import { App } from '../types'
+import { App, Product, Catalog } from '../types'
 
 const Store: {
-    catalog: null | App['store']['catalog']
-    cart: Record<string, unknown>[]
+    catalog: App['store']['catalog']
+    cart: { product: Product; quantity: number }[]
 } = {
-    catalog: null,
+    catalog: [],
     cart: [],
 }
 
 const ProxyStore = new Proxy(Store, {
-    set(target: typeof Store, prop: keyof typeof Store, value: unknown) {
+    set(target: typeof Store, prop: keyof typeof Store, value: unknown[]) {
         if (prop === 'catalog') {
-            target[prop] = value as (typeof Store)['catalog']
+            target[prop] = value as Catalog[]
             window.dispatchEvent(new Event('catalogupdate'))
         }
         if (prop === 'cart') {
-            target[prop].push(value as Record<string, unknown>)
+            target[prop] = value as { product: Product; quantity: number }[]
             window.dispatchEvent(new Event('cartupdate'))
         }
+
         return true
     },
 })

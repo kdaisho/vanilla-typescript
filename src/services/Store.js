@@ -1,5 +1,5 @@
 const Store = {
-    catalog: null,
+    catalog: [],
     cart: [],
 };
 const ProxyStore = new Proxy(Store, {
@@ -9,7 +9,7 @@ const ProxyStore = new Proxy(Store, {
             window.dispatchEvent(new Event('catalogupdate'));
         }
         if (prop === 'cart') {
-            target[prop].push(value);
+            target[prop] = value;
             window.dispatchEvent(new Event('cartupdate'));
         }
         return true;

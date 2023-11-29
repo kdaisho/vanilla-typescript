@@ -1,4 +1,5 @@
 import { getProductById } from '../../services/Catalog.js';
+import { addToCart } from '../../services/Order.js';
 import { loadCSS } from '../../utils.js';
 export default class DetailsPage extends HTMLElement {
     constructor() {
@@ -13,17 +14,22 @@ export default class DetailsPage extends HTMLElement {
         const template = document.getElementById('details-page-template');
         this.root.appendChild(template.content.cloneNode(true));
         this.render();
+        window.addEventListener('cartupdate', () => {
+            console.log('CART UPDATED', window.app.store.cart);
+        });
     }
     async render() {
         if (this.dataset.id) {
-            this.product = (await getProductById(this.dataset.id));
+            this.product = (await getProductById(parseInt(this.dataset.id, 10)));
             this.root.querySelector('h2').textContent = this.product.name;
             this.root.querySelector('img').src = `/src/images/products/${this.product.image}`;
             this.root.querySelector('.description').textContent =
                 this.product.description;
             this.root.querySelector('.price').textContent = `$ ${this.product.price.toFixed(2)} each`;
-            this.root.querySelector('button').addEventListener('click', () => {
-                // TODO addToCart(this.product.id);
+            this.root
+                .querySelector('button')
+                .addEventListener('click', async () => {
+                addToCart(this.product.id);
                 window.app.router.go('/#/order');
             });
         }

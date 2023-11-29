@@ -5,8 +5,11 @@ import OrderPage from './components/order-page/OrderPage.js'
 
 export interface App {
     store: {
-        catalog: null | Catalog
-        cart: Record<string, unknown>[]
+        catalog: Catalog[]
+        cart: {
+            product: Product
+            quantity: number
+        }[]
     }
     catalogPage: CatalogPage
     productItem: ProductItem
@@ -21,12 +24,11 @@ export interface App {
 export type Catalog = {
     name: string
     products: Product[]
-}[]
+}
 
 export type Product = {
     id: number
     name: string
-    name999: string
     price: number
     description: string
     image: string

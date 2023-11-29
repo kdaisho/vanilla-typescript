@@ -8,7 +8,7 @@ export async function getProductById(id) {
     }
     for (const catalog of window.app.store.catalog) {
         for (const product of catalog.products) {
-            if (product.id === parseInt(id, 10)) {
+            if (product.id === id) {
                 return product;
             }
         }

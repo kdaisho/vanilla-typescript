@@ -1,4 +1,5 @@
 import { getProductById } from '../../services/Catalog.js'
+import { addToCart } from '../../services/Order.js'
 import type { Product } from '../../types'
 import { loadCSS } from '../../utils.js'
 
@@ -22,11 +23,17 @@ export default class DetailsPage extends HTMLElement {
         ) as HTMLTemplateElement
         this.root.appendChild(template.content.cloneNode(true))
         this.render()
+
+        window.addEventListener('cartupdate', () => {
+            console.log('CART UPDATED', window.app.store.cart)
+        })
     }
 
     async render() {
         if (this.dataset.id) {
-            this.product = (await getProductById(this.dataset.id)) as Product
+            this.product = (await getProductById(
+                parseInt(this.dataset.id, 10)
+            )) as Product
             this.root.querySelector('h2')!.textContent = this.product.name
             this.root.querySelector(
                 'img'
@@ -37,10 +44,12 @@ export default class DetailsPage extends HTMLElement {
                 '.price'
             )!.textContent = `$ ${this.product.price.toFixed(2)} each`
 
-            this.root.querySelector('button')!.addEventListener('click', () => {
-                // TODO addToCart(this.product.id);
-                window.app.router.go('/#/order')
-            })
+            this.root
+                .querySelector('button')!
+                .addEventListener('click', async () => {
+                    addToCart(this.product.id)
+                    window.app.router.go('/#/order')
+                })
         } else {
             alert('Invalid product ID')
         }
