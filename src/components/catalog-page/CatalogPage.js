@@ -24,13 +24,13 @@ export default class CatalogPage extends HTMLElement {
                 li.setAttribute('class', 'category');
                 li.innerHTML = `
                     <h3>${category.name}</h3>       
-                    <ul class='product-items'></ul>
+                    <ul class='category-items'></ul>
                 `;
                 catalogUlElement.appendChild(li);
                 category.products.forEach(product => {
                     const item = document.createElement('product-item');
                     item.dataset.product = JSON.stringify(product);
-                    li.querySelector('.product-items').appendChild(item);
+                    li.querySelector('.category-items').appendChild(item);
                 });
             }
         }

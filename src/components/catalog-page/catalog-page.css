@@ -17,7 +17,7 @@ button {
     padding: 0.25rem 1rem;
 }
 
-.product-items {
+.category-items {
     display: flex;
     flex-flow: row wrap;
     gap: 1rem;

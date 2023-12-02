@@ -41,9 +41,9 @@ export default class DetailsPage extends HTMLElement {
             } else {
                 this.product = currentItem
                 this.root.querySelector('h2')!.textContent = this.product.name
-                this.root.querySelector(
-                    'img'
-                )!.src = `/src/images/products/${this.product.image}`
+                const img = this.root.querySelector('img')
+                img!.src = `/src/images/products/${this.product.image}`
+                img!.alt = this.product.name
                 this.root.querySelector('.description')!.textContent =
                     this.product.description
                 this.root.querySelector('.price')!.textContent =
