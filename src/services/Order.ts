@@ -9,11 +9,15 @@ type CartItem = {
 export async function addToCart(productId: number) {
     const product = await getProductById(productId)
 
-    const itemInTheCart = window.app.store.cart.filter(item => {
+    if (!product) {
+        throw new Error('Product not found')
+    }
+
+    const currentItem = window.app.store.cart.filter(item => {
         return item.product.id === productId
     })
 
-    if (itemInTheCart.length === 1) {
+    if (currentItem.length === 1) {
         window.app.store.cart = window.app.store.cart.map((item: CartItem) => {
             return item.product.id === productId
                 ? {
@@ -26,7 +30,7 @@ export async function addToCart(productId: number) {
         window.app.store.cart = [
             ...window.app.store.cart,
             {
-                product: product as Product,
+                product: product,
                 quantity: 1,
             },
         ]

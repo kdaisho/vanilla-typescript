@@ -3,7 +3,7 @@ export async function loadData() {
     window.app.store.catalog = await API.fetchCatalog();
 }
 export async function getProductById(id) {
-    if (window.app.store.catalog === null) {
+    if (!window.app.store.catalog.length) {
         await loadData();
     }
     for (const catalog of window.app.store.catalog) {

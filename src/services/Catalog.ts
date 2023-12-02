@@ -5,7 +5,7 @@ export async function loadData() {
 }
 
 export async function getProductById(id: number) {
-    if (window.app.store.catalog === null) {
+    if (!window.app.store.catalog.length) {
         await loadData()
     }
 

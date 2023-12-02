@@ -31,25 +31,37 @@ export default class DetailsPage extends HTMLElement {
 
     async render() {
         if (this.dataset.id) {
-            this.product = (await getProductById(
-                parseInt(this.dataset.id, 10)
-            )) as Product
-            this.root.querySelector('h2')!.textContent = this.product.name
-            this.root.querySelector(
-                'img'
-            )!.src = `/src/images/products/${this.product.image}`
-            this.root.querySelector('.description')!.textContent =
-                this.product.description
-            this.root.querySelector(
-                '.price'
-            )!.textContent = `$ ${this.product.price.toFixed(2)} each`
+            const currentItem = await getProductById(
+                parseInt(this.dataset.id!, 10)
+            )
 
-            this.root
-                .querySelector('button')!
-                .addEventListener('click', async () => {
-                    addToCart(this.product.id)
-                    window.app.router.go('/#/order')
-                })
+            if (!currentItem) {
+                alert('Current product not found')
+                return
+            } else {
+                this.product = currentItem
+                this.root.querySelector('h2')!.textContent = this.product.name
+                this.root.querySelector(
+                    'img'
+                )!.src = `/src/images/products/${this.product.image}`
+                this.root.querySelector('.description')!.textContent =
+                    this.product.description
+                this.root.querySelector('.price')!.textContent =
+                    '$' + this.product.price.toFixed(2)
+
+                this.root
+                    .querySelector('button')!
+                    .addEventListener('click', async () => {
+                        try {
+                            await addToCart(this.product.id)
+                            window.app.router.go('/#/order')
+                        } catch (error) {
+                            if (error instanceof Error) {
+                                alert(error.message)
+                            }
+                        }
+                    })
+            }
         } else {
             alert('Invalid product ID')
         }
