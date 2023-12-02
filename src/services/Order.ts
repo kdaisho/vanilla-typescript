@@ -35,4 +35,12 @@ export async function addToCart(productId: number) {
             },
         ]
     }
+
+    window.dispatchEvent(new Event('appcartchange'))
+}
+
+export function removeFromCart(productId: number) {
+    window.app.store.cart = window.app.store.cart.filter(
+        item => item.product.id !== productId
+    )
 }

@@ -26,4 +26,8 @@ export async function addToCart(productId) {
             },
         ];
     }
+    window.dispatchEvent(new Event('appcartchange'));
+}
+export function removeFromCart(productId) {
+    window.app.store.cart = window.app.store.cart.filter(item => item.product.id !== productId);
 }

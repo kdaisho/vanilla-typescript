@@ -38,7 +38,6 @@ export default class DetailsPage extends HTMLElement {
                     .addEventListener('click', async () => {
                     try {
                         await addToCart(this.product.id);
-                        window.app.router.go('/#/order');
                     }
                     catch (error) {
                         if (error instanceof Error) {

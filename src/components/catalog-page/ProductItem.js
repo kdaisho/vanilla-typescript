@@ -1,3 +1,4 @@
+import { addToCart } from '../../services/Order.js';
 export default class ProductItem extends HTMLElement {
     constructor() {
         super();
@@ -11,11 +12,11 @@ export default class ProductItem extends HTMLElement {
         this.querySelector('p.price').textContent =
             '$' + product.price.toFixed(2);
         this.querySelector('img').src = `src/images/products/${product.image}`;
-        this.querySelector('a').addEventListener('click', (event) => {
+        this.querySelector('a').addEventListener('click', async (event) => {
             event.preventDefault();
             const target = event.target;
             if (target.tagName.toLowerCase() === 'button') {
-                // TODO: Add to cart
+                await addToCart(product.id);
             }
             else {
                 window.app.router.go(`/#/product/${product.id}`);
