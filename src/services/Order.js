@@ -30,4 +30,5 @@ export async function addToCart(productId) {
 }
 export function removeFromCart(productId) {
     window.app.store.cart = window.app.store.cart.filter(item => item.product.id !== productId);
+    window.dispatchEvent(new Event('appcartchange'));
 }

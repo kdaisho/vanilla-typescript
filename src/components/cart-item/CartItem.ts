@@ -1,4 +1,4 @@
-import { removeFromCart } from 'src/services/Order.js'
+import { removeFromCart } from '../../services/Order.js'
 
 export default class CartItem extends HTMLElement {
     constructor() {
@@ -16,11 +16,10 @@ export default class CartItem extends HTMLElement {
 
         this.appendChild(content)
 
-        this.querySelector('.qty')!.textContent = `${item.quantity}x`
+        this.querySelector('.qty')!.textContent = item.quantity + 'x'
         this.querySelector('.name')!.textContent = item.product.name
-        this.querySelector(
-            '.price'
-        )!.textContent = `$${item.product.price.toFixed(2)}`
+        this.querySelector('.price')!.textContent =
+            '$' + item.product.price.toFixed(2)
         this.querySelector('a.delete-button')!.addEventListener('click', () => {
             removeFromCart(item.product.id)
         })

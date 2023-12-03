@@ -5,15 +5,18 @@ import CatalogPage from './components/catalog-page/CatalogPage.js'
 import ProductItem from './components/catalog-page/ProductItem.js'
 import DetailsPage from './components/details-page/DetailsPage.js'
 import OrderPage from './components/order-page/OrderPage.js'
+import CartItem from './components/cart-item/CartItem.js'
 import { App } from './types'
 
 window.app = {} as App
 window.app.store = ProxyStore
 window.app.router = Router
-window.app.catalogPage = new CatalogPage()
-window.app.productItem = new ProductItem()
-window.app.detailsPage = new DetailsPage()
-window.app.orderPage = new OrderPage()
+
+new CatalogPage()
+new ProductItem()
+new DetailsPage()
+new OrderPage()
+new CartItem()
 
 addEventListener('DOMContentLoaded', () => {
     loadData()
