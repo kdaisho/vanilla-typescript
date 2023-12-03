@@ -29,6 +29,7 @@ body > header {
 body > main {
     margin: 0 auto;
     max-width: var(--app-width);
+    padding: 1.5rem 0.75rem;
 }
 
 header {

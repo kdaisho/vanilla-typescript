@@ -9,10 +9,10 @@ export default class CartItem extends HTMLElement {
         const template = document.getElementById('cart-item-template');
         const content = template.content.cloneNode(true);
         this.appendChild(content);
-        this.querySelector('.qty').textContent = item.quantity + 'x';
+        this.querySelector('.qty').textContent = item.quantity + ' x ';
         this.querySelector('.name').textContent = item.product.name;
         this.querySelector('.price').textContent =
-            '$' + item.product.price.toFixed(2);
+            '$' + item.product.price.toFixed(2) + ' each';
         this.querySelector('a.delete-button').addEventListener('click', () => {
             removeFromCart(item.product.id);
         });

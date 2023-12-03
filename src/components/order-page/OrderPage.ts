@@ -5,7 +5,6 @@ export default class OrderPage extends HTMLElement {
 
     constructor() {
         super()
-        console.log('==>', 11)
 
         this.root = this.attachShadow({ mode: 'open' })
         const styles = document.createElement('style')
@@ -14,7 +13,12 @@ export default class OrderPage extends HTMLElement {
         this.root.appendChild(section)
         this.root.appendChild(styles)
 
-        loadCSS(styles, 'src/components/order-page/order-page.css')
+        loadCSS(
+            styles,
+            'src/reset.css',
+            'src/components/common.css',
+            'src/components/order-page/order-page.css'
+        )
     }
 
     connectedCallback() {
@@ -32,7 +36,7 @@ export default class OrderPage extends HTMLElement {
             return
         }
 
-        if (window.app.store.cart.length == 0) {
+        if (window.app.store.cart.length === 0) {
             section.innerHTML = `
                 <p class="empty">Your order is empty</p>
             `
@@ -40,6 +44,7 @@ export default class OrderPage extends HTMLElement {
             const html = `
                 <h2>Your Order</h2>
                 <ul></ul>
+                <footer></footer>
             `
 
             section.innerHTML = html
@@ -51,12 +56,7 @@ export default class OrderPage extends HTMLElement {
             const content = template.content.cloneNode(true)
             section.appendChild(content)
 
-            const unorderedList = this.root.querySelector('ul')
-
-            if (!unorderedList) {
-                console.error('Unordered list not found')
-                return
-            }
+            const unorderedList = this.root.querySelector('ul')!
 
             let total = 0
 
@@ -67,11 +67,11 @@ export default class OrderPage extends HTMLElement {
                 total += prodInCart.quantity * prodInCart.product.price
             }
 
-            unorderedList.innerHTML += `
-                <li>
-                    <p class='total'>Total</p>
-                    <p class='price-total'>$${total.toFixed(2)}</p>
-                </li>
+            const footer = this.root.querySelector('footer')!
+
+            footer.innerHTML += `
+                <p class='total'>Total</p>
+                <p class='price-total'>$${total.toFixed(2)}</p>
             `
         }
     }

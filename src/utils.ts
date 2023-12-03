@@ -1,4 +1,9 @@
-export async function loadCSS(styleElement: HTMLStyleElement, url: string) {
-    const res = await fetch(url)
-    styleElement.textContent = await res.text()
+export async function loadCSS(
+    styleElement: HTMLStyleElement,
+    ...urls: string[]
+) {
+    for (const url of urls) {
+        const response = await fetch(url)
+        styleElement.textContent += await response.text()
+    }
 }

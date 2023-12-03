@@ -1,3 +1,80 @@
+/* @import url('src/reset.css'); */
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0 auto;
+    max-width: 400px;
+    width: 100%;
+}
+
 ul {
-    list-style: none;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.75rem;
+}
+
+li {
+    border-radius: 4px;
+    background: var(--light-grey);
+    display: grid;
+    gap: 0.75rem;
+    grid-template-areas:
+        'qty name'
+        'price delete-button';
+    padding: 0.75rem;
+}
+
+.qty {
+    grid-area: qty;
+}
+
+.name {
+    grid-area: name;
+}
+
+.price {
+    grid-area: price;
+}
+
+.delete-button {
+    grid-area: delete-button;
+}
+
+footer {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+fieldset {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.75rem;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+input {
+    border-radius: 4px;
+    height: 30px;
+    padding: 0 0.5rem;
+    border: 1px solid var(--dark-grey);
+}
+
+button[type='submit']:hover {
+    cursor: pointer;
 }

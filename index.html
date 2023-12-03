@@ -36,7 +36,7 @@
         <main></main>
 
         <template id="catalog-page-template">
-            <h2>All T-shirts</h2>
+            <h1>All T-shirts</h1>
             <section>
                 <ul id="catalog" class="catalog"></ul>
             </section>
@@ -46,11 +46,10 @@
             <article>
                 <a href="#">
                     <img />
-                    <section>
-                        <div>
-                            <h4></h4>
-                            <p class="price"></p>
-                        </div>
+
+                    <section class="info-action">
+                        <h4></h4>
+                        <p class="price"></p>
 
                         <button>Add</button>
                     </section>
@@ -60,13 +59,22 @@
 
         <template id="order-form-template">
             <form>
-                <label for="name">Your name</label>
-                <input name="name" required />
-                <label for="phone">Your phone number</label>
-                <input name="phone" type="tel" />
-                <label for="email">Your email</label>
-                <input name="email" type="email" />
-                <button type="submit">Place order</button>
+                <fieldset>
+                    <label for="name">
+                        Your name
+                        <input id="name" name="name" required />
+                    </label>
+                    <label for="phone">
+                        Your phone number
+                        <input id="phone" name="phone" type="tel" />
+                    </label>
+                    <label for="email">
+                        Your email
+                        <input id="eamil" name="email" type="email" />
+                    </label>
+                </fieldset>
+
+                <button class="app-btn" type="submit">Place order</button>
             </form>
         </template>
 
@@ -78,13 +86,17 @@
                 >
                     &lt; Back
                 </a>
-                <h2></h2>
-                <a></a>
             </header>
-            <img src="" />
-            <p class="description"></p>
-            <p class="price"></p>
-            <button>Add to cart</button>
+
+            <section>
+                <h2></h2>
+                <img src="" />
+                <footer>
+                    <p class="description"></p>
+                    <p class="price"></p>
+                    <button class="app-btn">Add to cart</button>
+                </footer>
+            </section>
         </template>
 
         <template id="cart-item-template">
@@ -93,7 +105,13 @@
                 <p class="name"></p>
                 <p class="price"></p>
                 <p class="toolbar">
-                    <a href="#" class="delete-button">🗑️</a>
+                    <a
+                        href="#"
+                        class="delete-button"
+                        title="delete this item(s) from cart"
+                    >
+                        🗑️
+                    </a>
                 </p>
             </li>
         </template>

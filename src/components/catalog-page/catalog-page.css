@@ -1,13 +1,12 @@
-@import url('src/reset.css');
-
 .catalog {
     display: flex;
     flex-flow: column nowrap;
     gap: 2rem;
 }
 
-h2 {
+h1 {
     color: var(--hotpink);
+    margin-bottom: 1rem;
 }
 
 button {
@@ -17,8 +16,54 @@ button {
     padding: 0.25rem 1rem;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
+.category {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.5rem;
+}
+
 .category-items {
     display: flex;
     flex-flow: row wrap;
     gap: 1rem;
+}
+
+article img {
+    height: 240px;
+    object-fit: cover;
+    width: 240px;
+}
+
+.info-action {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-areas:
+        'product-name product-name'
+        'price price'
+        '. add-button';
+    padding: 0.5rem 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.info-action h4 {
+    grid-area: product-name;
+}
+
+.info-action p {
+    grid-area: price;
+}
+
+.info-action button {
+    border-radius: 4px;
+    grid-area: add-button;
+    justify-self: end;
+    height: 30px;
+    width: 80px;
 }

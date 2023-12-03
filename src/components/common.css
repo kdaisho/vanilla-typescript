@@ -1,0 +1,12 @@
+button.app-btn {
+    background: var(--hotpink);
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    height: 30px;
+    padding: 0.25rem 1rem;
+}
+
+button:hover {
+    cursor: pointer;
+}

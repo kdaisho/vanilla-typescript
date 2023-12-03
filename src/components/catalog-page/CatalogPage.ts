@@ -9,7 +9,11 @@ export default class CatalogPage extends HTMLElement {
 
         const style = document.createElement('style')
         this.root.appendChild(style)
-        loadCSS(style, 'src/components/catalog-page/catalog-page.css')
+        loadCSS(
+            style,
+            'src/reset.css',
+            'src/components/catalog-page/catalog-page.css'
+        )
     }
 
     connectedCallback() {

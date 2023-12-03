@@ -5,7 +5,7 @@ export default class CatalogPage extends HTMLElement {
         this.root = this.attachShadow({ mode: 'open' });
         const style = document.createElement('style');
         this.root.appendChild(style);
-        loadCSS(style, 'src/components/catalog-page/catalog-page.css');
+        loadCSS(style, 'src/reset.css', 'src/components/catalog-page/catalog-page.css');
     }
     connectedCallback() {
         const template = document.getElementById('catalog-page-template');

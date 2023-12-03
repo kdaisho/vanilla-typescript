@@ -14,7 +14,12 @@ export default class DetailsPage extends HTMLElement {
 
         const styles = document.createElement('style')
         this.root.appendChild(styles)
-        loadCSS(styles, 'src/components/catalog-page/details-page.css')
+        loadCSS(
+            styles,
+            'src/reset.css',
+            'src/components/common.css',
+            'src/components/details-page/details-page.css'
+        )
     }
 
     connectedCallback() {
